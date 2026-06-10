@@ -250,7 +250,29 @@
       font-weight:800;
       padding:24px;
     }
+    
+.screenshot {
+  background:white;
+  border:1px solid var(--border);
+  border-radius:34px;
+  padding:18px;
+  box-shadow:0 24px 60px rgba(20,35,70,0.12);
+}
 
+.screenshot img {
+  width:100%;
+  display:block;
+  border-radius:24px;
+}
+
+.caption {
+  color:var(--muted);
+  font-size:14px;
+  line-height:1.5;
+  margin-top:12px;
+  text-align:center;
+}
+    
     .split {
       display:grid;
       grid-template-columns:1fr 1fr;
@@ -335,20 +357,55 @@
     <section class="section" id="projekt">
       <div class="split">
         <div class="section-head">
-          <h2>1. Projekt anlegen.</h2>
+          <h2>1. Startseite & Projektverwaltung.</h2>
           <p>
-            Am Anfang steht das Projekt. WireLogic speichert die wichtigsten Informationen
-            zu Kunde, Bauvorhaben, Ort, Datum und Bearbeiter. Dadurch entsteht eine saubere
-            Grundlage für alle späteren Listen und Exporte.
-          </p>
+Die Startseite bildet das zentrale Dashboard von WireLogic.
+Von hier aus können neue Projekte angelegt, bestehende Projekte geöffnet
+oder Projektdateien importiert werden. Zusätzlich bietet WireLogic
+einen direkten Zugriff auf Einstellungen, Feedback und die Projektübersicht.
+</p>
         </div>
 
-        <div class="placeholder">
-          Screenshot-Platzhalter<br>
-          Projektübersicht / Projekt anlegen
-        </div>
+        <div class="screenshot">
+  <img src="screens/startseite.jpg" alt="WireLogic Startseite">
+
+  <div class="caption">
+    Die Startseite von WireLogic. Hier können neue Projekte erstellt,
+    bestehende Projekte geöffnet oder Projektdateien importiert werden.
+    Zusätzlich stehen Einstellungen, Feedback-Funktionen und die Suche
+    über alle Projekte zur Verfügung.
+  </div>
+</div>
       </div>
     </section>
+
+    <section class="section">
+  <div class="split">
+
+    <div class="section-head">
+      <h2>2. Einstellungen & Firmenlogo.</h2>
+
+      <p>
+        WireLogic ermöglicht die Hinterlegung von Firmeninformationen,
+        Kontaktdaten und einem Firmenlogo.
+      </p>
+
+      <p>
+        Diese Angaben werden später automatisch für PDF-Exporte
+        und Projektdokumentationen verwendet.
+      </p>
+    </div>
+
+    <div class="screenshot">
+      <img src="screens/einstellungen.jpg" alt="WireLogic Einstellungen">
+
+      <div class="caption">
+        Firmenname, Kontaktdaten und Logo können zentral hinterlegt werden.
+      </div>
+    </div>
+
+  </div>
+</section>
 
     <section class="section">
       <div class="grid-3">
@@ -373,7 +430,7 @@
     </section>
 
     <section class="dark-section">
-      <h2>2. Räume und Etagen strukturieren.</h2>
+      <h2>3. Räume und Etagen strukturieren.</h2>
       <p>
         WireLogic bildet das Gebäude in Etagen und Räume ab. Dadurch weiß die App später,
         wo Leitungen liegen, welcher Raum zu welcher Etage gehört und welche Klemmenleiste
