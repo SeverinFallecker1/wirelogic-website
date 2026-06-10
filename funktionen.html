@@ -1,0 +1,642 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>WireLogic – Funktionen im Detail</title>
+
+  <style>
+    :root {
+      --blue:#0d6efd;
+      --cyan:#22d3ee;
+      --dark:#0b1220;
+      --text:#172033;
+      --muted:#667085;
+      --bg:#f5f8fc;
+      --card:rgba(255,255,255,0.92);
+      --border:rgba(13,110,253,0.14);
+    }
+
+    * { box-sizing:border-box; }
+
+    body {
+      margin:0;
+      font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Arial,sans-serif;
+      background:
+        radial-gradient(circle at top left,rgba(13,110,253,0.18),transparent 32%),
+        radial-gradient(circle at bottom right,rgba(34,211,238,0.16),transparent 30%),
+        var(--bg);
+      color:var(--text);
+    }
+
+    a { text-decoration:none; }
+
+    .page {
+      max-width:1180px;
+      margin:0 auto;
+      padding:28px 20px 70px;
+    }
+
+    header {
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      margin-bottom:70px;
+    }
+
+    .brand {
+      display:flex;
+      align-items:center;
+      gap:12px;
+      font-weight:900;
+    }
+
+    .logo {
+      width:54px;
+      height:54px;
+    }
+
+    .logo img {
+      width:100%;
+      height:100%;
+      object-fit:contain;
+    }
+
+    nav {
+      display:flex;
+      gap:18px;
+      flex-wrap:wrap;
+      align-items:center;
+    }
+
+    nav a {
+      color:var(--muted);
+      font-size:14px;
+      font-weight:700;
+    }
+
+    .nav-button {
+      background:var(--blue);
+      color:white;
+      padding:10px 16px;
+      border-radius:999px;
+    }
+
+    .hero {
+      text-align:center;
+      max-width:980px;
+      margin:0 auto 80px;
+    }
+
+    .badge {
+      display:inline-flex;
+      padding:10px 16px;
+      border-radius:999px;
+      background:rgba(13,110,253,0.1);
+      color:var(--blue);
+      font-weight:800;
+      margin-bottom:24px;
+    }
+
+    h1 {
+      font-size:clamp(44px,8vw,86px);
+      line-height:0.95;
+      letter-spacing:-0.07em;
+      margin:0;
+    }
+
+    h1 span {
+      display:block;
+      color:var(--blue);
+    }
+
+    .subtitle {
+      max-width:780px;
+      margin:28px auto 0;
+      color:var(--muted);
+      font-size:22px;
+      line-height:1.55;
+    }
+
+    .section {
+      margin-bottom:80px;
+    }
+
+    .section-head {
+      max-width:780px;
+      margin-bottom:30px;
+    }
+
+    .section-head.center {
+      text-align:center;
+      margin-left:auto;
+      margin-right:auto;
+    }
+
+    .section-head h2 {
+      font-size:clamp(34px,5vw,62px);
+      line-height:1;
+      letter-spacing:-0.06em;
+      margin:0 0 18px;
+    }
+
+    .section-head p {
+      color:var(--muted);
+      font-size:19px;
+      line-height:1.65;
+      margin:0;
+    }
+
+    .card {
+      background:var(--card);
+      border:1px solid var(--border);
+      border-radius:30px;
+      padding:30px;
+      box-shadow:0 18px 45px rgba(20,35,70,0.08);
+    }
+
+    .grid {
+      display:grid;
+      grid-template-columns:repeat(2,1fr);
+      gap:18px;
+    }
+
+    .grid-3 {
+      display:grid;
+      grid-template-columns:repeat(3,1fr);
+      gap:18px;
+    }
+
+    .feature h3,
+    .card h3 {
+      margin:0 0 10px;
+      font-size:22px;
+    }
+
+    .feature p,
+    .card p {
+      color:var(--muted);
+      line-height:1.65;
+      margin:0;
+    }
+
+    .number {
+      width:46px;
+      height:46px;
+      display:grid;
+      place-items:center;
+      background:rgba(13,110,253,0.1);
+      color:var(--blue);
+      border-radius:16px;
+      font-weight:900;
+      margin-bottom:16px;
+    }
+
+    .dark-section {
+      background:var(--dark);
+      color:white;
+      border-radius:38px;
+      padding:46px;
+      margin-bottom:80px;
+    }
+
+    .dark-section h2 {
+      font-size:clamp(34px,5vw,62px);
+      line-height:1;
+      letter-spacing:-0.06em;
+      margin:0 0 22px;
+    }
+
+    .dark-section p {
+      color:rgba(255,255,255,0.7);
+      font-size:18px;
+      line-height:1.7;
+    }
+
+    .list {
+      display:grid;
+      gap:14px;
+      margin-top:26px;
+    }
+
+    .list-item {
+      background:rgba(255,255,255,0.08);
+      border:1px solid rgba(255,255,255,0.12);
+      border-radius:20px;
+      padding:18px;
+    }
+
+    .list-item strong {
+      display:block;
+      margin-bottom:6px;
+    }
+
+    .list-item span {
+      color:rgba(255,255,255,0.65);
+      line-height:1.55;
+    }
+
+    .placeholder {
+      min-height:280px;
+      border-radius:28px;
+      background:
+        linear-gradient(135deg,rgba(13,110,253,0.10),rgba(34,211,238,0.10)),
+        white;
+      border:1px dashed rgba(13,110,253,0.28);
+      display:grid;
+      place-items:center;
+      text-align:center;
+      color:var(--muted);
+      font-weight:800;
+      padding:24px;
+    }
+
+    .split {
+      display:grid;
+      grid-template-columns:1fr 1fr;
+      gap:22px;
+      align-items:center;
+    }
+
+    .footer {
+      text-align:center;
+      color:var(--muted);
+      font-size:14px;
+      padding-top:30px;
+    }
+
+    .footer a {
+      color:var(--muted);
+      font-weight:700;
+      margin:0 8px;
+    }
+
+    @media(max-width:860px) {
+      header {
+        flex-direction:column;
+        align-items:flex-start;
+        gap:20px;
+        margin-bottom:48px;
+      }
+
+      .grid,
+      .grid-3,
+      .split {
+        grid-template-columns:1fr;
+      }
+
+      .dark-section {
+        padding:28px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <main class="page">
+
+    <header>
+      <div class="brand">
+        <div class="logo">
+          <img src="wirelogic-logo.png.png" alt="WireLogic Logo">
+        </div>
+        <div>
+          <div>WireLogic</div>
+          <div style="font-size:12px;color:#667085;letter-spacing:0.16em;">SYSTEMS</div>
+        </div>
+      </div>
+
+      <nav>
+        <a href="index.html">Start</a>
+        <a href="#projekt">Projekt</a>
+        <a href="#leitungen">Leitungen</a>
+        <a href="#knx">KNX</a>
+        <a href="#export">Export</a>
+        <a class="nav-button" href="https://testflight.apple.com/join/2BMqs9C9">Beta testen</a>
+      </nav>
+    </header>
+
+    <section class="hero">
+      <div class="badge">📱 WireLogic im Detail</div>
+      <h1>
+        Eine App.
+        <span>Der komplette Ablauf.</span>
+      </h1>
+      <p class="subtitle">
+        Diese Seite erklärt Schritt für Schritt, wie WireLogic funktioniert:
+        von der Projektanlage über Räume, Leitungen, Adern und Klemmen bis zur KNX-Vorschau,
+        PDF-Ausgabe und späteren Verteilerplanung.
+      </p>
+    </section>
+
+    <section class="section" id="projekt">
+      <div class="split">
+        <div class="section-head">
+          <h2>1. Projekt anlegen.</h2>
+          <p>
+            Am Anfang steht das Projekt. WireLogic speichert die wichtigsten Informationen
+            zu Kunde, Bauvorhaben, Ort, Datum und Bearbeiter. Dadurch entsteht eine saubere
+            Grundlage für alle späteren Listen und Exporte.
+          </p>
+        </div>
+
+        <div class="placeholder">
+          Screenshot-Platzhalter<br>
+          Projektübersicht / Projekt anlegen
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="grid-3">
+        <div class="card feature">
+          <div class="number">01</div>
+          <h3>Kunde & Bauvorhaben</h3>
+          <p>Kundendaten, Projektname, Ort und Bauvorhaben werden zentral im Projekt gespeichert.</p>
+        </div>
+
+        <div class="card feature">
+          <div class="number">02</div>
+          <h3>Bearbeiter</h3>
+          <p>Der zuständige Bearbeiter kann im Projekt hinterlegt und später im PDF ausgegeben werden.</p>
+        </div>
+
+        <div class="card feature">
+          <div class="number">03</div>
+          <h3>Projektdatei</h3>
+          <p>Das Projekt kann exportiert und später wieder geöffnet oder im WebViewer betrachtet werden.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="dark-section">
+      <h2>2. Räume und Etagen strukturieren.</h2>
+      <p>
+        WireLogic bildet das Gebäude in Etagen und Räume ab. Dadurch weiß die App später,
+        wo Leitungen liegen, welcher Raum zu welcher Etage gehört und welche Klemmenleiste
+        verwendet werden soll.
+      </p>
+
+      <div class="list">
+        <div class="list-item">
+          <strong>KG, EG, OG, DG und Außenbereich</strong>
+          <span>Jeder Raum wird einer Etage zugeordnet. Daraus entsteht die spätere Sortierung der Listen.</span>
+        </div>
+
+        <div class="list-item">
+          <strong>Raumbasierte Planung</strong>
+          <span>Leitungen, interne Schaltungen, KNX-Funktionen und Verbraucher werden immer dem passenden Raum zugeordnet.</span>
+        </div>
+
+        <div class="list-item">
+          <strong>Klare Struktur statt Excel-Chaos</strong>
+          <span>Die Gebäudestruktur bleibt während der gesamten Planung erhalten und wird in den Exporten wiederverwendet.</span>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="leitungen">
+      <div class="section-head center">
+        <h2>3. Leitungen erfassen.</h2>
+        <p>
+          In jedem Raum können Leitungen angelegt werden. Dabei werden Kabeltyp, Kabelart,
+          Sicherung, Verbraucher, Adern und Funktionen dokumentiert.
+        </p>
+      </div>
+
+      <div class="grid">
+        <div class="card">
+          <h3>Kabeltypen</h3>
+          <p>
+            WireLogic unterstützt verschiedene Aderzahlen wie 3-, 5-, 7-, 10- und 12-adrige Leitungen.
+            Dadurch können typische Installationen für Licht, Steckdosen, Jalousien, DALI oder Reserven
+            sauber erfasst werden.
+          </p>
+        </div>
+
+        <div class="card">
+          <h3>Kabelarten</h3>
+          <p>
+            Kabelarten wie NYM-J, NYY oder Einzeladern können ausgewählt werden.
+            So bleibt nachvollziehbar, welche Leitung tatsächlich geplant oder verlegt wurde.
+          </p>
+        </div>
+
+        <div class="card">
+          <h3>Sicherungsnummer</h3>
+          <p>
+            Pro Leitung kann eine Sicherung hinterlegt werden. Diese Information erscheint später
+            in den Listen und hilft bei der Zuordnung im Verteiler.
+          </p>
+        </div>
+
+        <div class="card">
+          <h3>Verbraucher</h3>
+          <p>
+            Verbraucher wie Licht, Steckdose, Kochfeld, Jalousie oder Sonderfunktionen können
+            eindeutig zur Leitung dokumentiert werden.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="split">
+        <div class="placeholder">
+          Screenshot-Platzhalter<br>
+          Leitung erfassen / Adern bearbeiten
+        </div>
+
+        <div class="section-head">
+          <h2>4. Adern bekommen Bedeutung.</h2>
+          <p>
+            Jede Ader kann mit einer Funktion versehen werden. Dadurch wird aus einer einfachen
+            Leitung eine verwertbare Information für Klemmenliste, KNX-Vorschau und spätere Planung.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="grid-3">
+        <div class="card">
+          <h3>Dauerphase</h3>
+          <p>Für dauerhaft anliegende Phasen, Einspeisungen oder Versorgung von Verbrauchern.</p>
+        </div>
+
+        <div class="card">
+          <h3>Schalten</h3>
+          <p>Für geschaltete Verbraucher wie Deckenlicht, Wandlicht, Steckdosen oder Sonderfunktionen.</p>
+        </div>
+
+        <div class="card">
+          <h3>Dimmen</h3>
+          <p>Für dimmbare Lichtkreise und spätere KNX-Dimmfunktionen.</p>
+        </div>
+
+        <div class="card">
+          <h3>Jalousie Auf / Ab</h3>
+          <p>Für Rollladen- und Jalousiesteuerungen mit getrennten Fahrtrichtungen.</p>
+        </div>
+
+        <div class="card">
+          <h3>DALI</h3>
+          <p>Für DALI-Adern als Hinweis in der Leitung und spätere interne DALI-Schaltungen.</p>
+        </div>
+
+        <div class="card">
+          <h3>N / PE / Reserve</h3>
+          <p>Neutralleiter, Schutzleiter und Reserveadern werden sauber mitgeführt und dokumentiert.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="dark-section">
+      <h2>5. Automatische Klemmenliste.</h2>
+      <p>
+        Aus den eingegebenen Leitungen und Aderfunktionen erzeugt WireLogic automatisch eine
+        strukturierte Klemmenliste. Die Sortierung orientiert sich an Etage, Raum, Leitung und Ader.
+      </p>
+
+      <div class="list">
+        <div class="list-item">
+          <strong>Klemmleisten nach Etagen</strong>
+          <span>Zum Beispiel KG → X1, EG → X2, OG → X3, DG → X4 und Außenbereich → X5.</span>
+        </div>
+
+        <div class="list-item">
+          <strong>Funktionale Adern</strong>
+          <span>Relevante Adern erhalten automatisch Klemmstellen. Neutralleiter und Schutzleiter können separat dokumentiert werden.</span>
+        </div>
+
+        <div class="list-item">
+          <strong>Weniger Fehlerquellen</strong>
+          <span>Da Klemmen aus den Projektdaten entstehen, müssen Listen nicht doppelt in Excel gepflegt werden.</span>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="knx">
+      <div class="split">
+        <div class="section-head">
+          <h2>6. KNX-Vorschau.</h2>
+          <p>
+            WireLogic bereitet aus den erfassten Funktionen eine KNX-Vorschau vor.
+            So können Gruppenadressen nach Raum, Funktion und Verbraucher geprüft werden,
+            bevor sie später weiterverarbeitet werden.
+          </p>
+        </div>
+
+        <div class="placeholder">
+          Screenshot-Platzhalter<br>
+          KNX Vorschau
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="grid">
+        <div class="card">
+          <h3>Schalten</h3>
+          <p>Schaltfunktionen können mit passenden Gruppenadressen und Statusfunktionen vorbereitet werden.</p>
+        </div>
+
+        <div class="card">
+          <h3>Dimmen</h3>
+          <p>Dimmfunktionen können inklusive Schalten, Dimmen, Status und Helligkeitswert strukturiert dargestellt werden.</p>
+        </div>
+
+        <div class="card">
+          <h3>Jalousie</h3>
+          <p>Jalousie- und Rollladenfunktionen können mit Auf/Ab, Stopp/Lamelle und Status vorbereitet werden.</p>
+        </div>
+
+        <div class="card">
+          <h3>Heizung & weitere Funktionen</h3>
+          <p>Auch Heizungsfunktionen und spätere Erweiterungen können in die KNX-Struktur aufgenommen werden.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="export">
+      <div class="section-head center">
+        <h2>7. Export und Weitergabe.</h2>
+        <p>
+          Am Ende entstehen aus den erfassten Projektdaten nutzbare Unterlagen.
+          WireLogic soll Dokumentation nicht nur sammeln, sondern direkt weiterverwendbar machen.
+        </p>
+      </div>
+
+      <div class="grid-3">
+        <div class="card">
+          <h3>PDF Export</h3>
+          <p>Projektinformationen, Leitungen, Adern, Klemmen und KNX-Daten können als PDF ausgegeben werden.</p>
+        </div>
+
+        <div class="card">
+          <h3>Projektdatei</h3>
+          <p>Projekte können als Datei exportiert, gesichert und später wieder geöffnet werden.</p>
+        </div>
+
+        <div class="card">
+          <h3>WebViewer</h3>
+          <p>Projektdateien können über den WebViewer auch außerhalb der App betrachtet werden.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="dark-section">
+      <h2>8. Was als Nächstes kommt.</h2>
+      <p>
+        WireLogic wird Schritt für Schritt weiterentwickelt. Ziel ist eine App, die langfristig
+        nicht nur Leitungen dokumentiert, sondern auch Verteiler, Aktoren, Klemmenfelder und
+        Stromlaufpläne vorbereitet.
+      </p>
+
+      <div class="list">
+        <div class="list-item">
+          <strong>Verteilerplanung</strong>
+          <span>Darstellung von FI/LS, LS-Schaltern, KNX-Geräten, DALI-Gateways und Reserven im Verteiler.</span>
+        </div>
+
+        <div class="list-item">
+          <strong>Aktorverwaltung</strong>
+          <span>Schaltaktoren, Dimmer, Binäreingänge und freie Kanäle sollen später übersichtlich verwaltet werden.</span>
+        </div>
+
+        <div class="list-item">
+          <strong>Klemmenfeldplanung</strong>
+          <span>Automatische Ableitung von Klemmenfeldern aus den bereits erfassten Leitungen und Adern.</span>
+        </div>
+
+        <div class="list-item">
+          <strong>Teamfunktionen</strong>
+          <span>Später sollen Firmenkonten und gemeinsame Projektbearbeitung für mehrere Mitarbeiter möglich werden.</span>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="section-head center">
+        <h2>Entwickelt von einem Elektriker für Elektriker.</h2>
+        <p>
+          WireLogic entsteht aus echten Baustellenproblemen: unübersichtliche Listen,
+          doppelte Arbeit, fehlende Struktur und viel zu viel Nacharbeit im Büro.
+          Die App soll diese Abläufe vereinfachen und moderne Elektroplanung direkt vor Ort ermöglichen.
+        </p>
+      </div>
+    </section>
+
+    <footer class="footer">
+      © 2026 WireLogic Systems
+      <br><br>
+      <a href="index.html">Start</a>
+      ·
+      <a href="privacy.html">Datenschutz</a>
+      ·
+      <a href="impressum.html">Impressum</a>
+    </footer>
+
+  </main>
+</body>
+</html>
