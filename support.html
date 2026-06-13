@@ -1,54 +1,252 @@
 <!DOCTYPE html>
 <html lang="de">
 <head>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-9XFBLR3LDT"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'G-9XFBLR3LDT', {
+      'anonymize_ip': true
+    });
+  </script>
+
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>WireLogic unterstützen</title>
+
+  <style>
+    body {
+      margin: 0;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Arial, sans-serif;
+      background: radial-gradient(circle at top left, rgba(13,110,253,0.18), transparent 35%),
+                  #06111f;
+      color: white;
+      line-height: 1.7;
+    }
+
+    .page {
+      max-width: 1050px;
+      margin: 0 auto;
+      padding: 32px 20px 70px;
+    }
+
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 70px;
+    }
+
+    .brand {
+      font-weight: 900;
+      font-size: 22px;
+    }
+
+    nav a {
+      color: rgba(255,255,255,0.72);
+      margin-left: 18px;
+      text-decoration: none;
+      font-weight: 700;
+      font-size: 14px;
+    }
+
+    .hero {
+      text-align: center;
+      max-width: 850px;
+      margin: 0 auto 60px;
+    }
+
+    .badge {
+      display: inline-block;
+      padding: 10px 16px;
+      border-radius: 999px;
+      background: rgba(13,110,253,0.18);
+      color: #4dabff;
+      font-weight: 800;
+      margin-bottom: 24px;
+    }
+
+    h1 {
+      font-size: clamp(42px, 7vw, 76px);
+      line-height: 1;
+      letter-spacing: -0.06em;
+      margin: 0 0 26px;
+    }
+
+    h2 {
+      font-size: 32px;
+      margin-top: 0;
+    }
+
+    p {
+      color: rgba(255,255,255,0.76);
+      font-size: 19px;
+    }
+
+    .card {
+      background: rgba(255,255,255,0.08);
+      border: 1px solid rgba(255,255,255,0.12);
+      border-radius: 30px;
+      padding: 34px;
+      margin-bottom: 24px;
+      box-shadow: 0 24px 70px rgba(0,0,0,0.25);
+    }
+
+    .support-button {
+      display: inline-block;
+      margin-top: 20px;
+      padding: 16px 26px;
+      border-radius: 999px;
+      background: linear-gradient(135deg, #0d6efd, #22d3ee);
+      color: white;
+      font-weight: 900;
+      text-decoration: none;
+      font-size: 18px;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 22px;
+      margin-top: 30px;
+    }
+
+    .list {
+      margin: 0;
+      padding-left: 22px;
+      color: rgba(255,255,255,0.76);
+      font-size: 18px;
+    }
+
+    .footer {
+      text-align: center;
+      color: rgba(255,255,255,0.55);
+      margin-top: 50px;
+      font-size: 14px;
+    }
+
+    .footer a {
+      color: rgba(255,255,255,0.65);
+      text-decoration: none;
+      margin: 0 8px;
+      font-weight: 700;
+    }
+
+    @media(max-width: 800px) {
+      header {
+        flex-direction: column;
+        gap: 18px;
+        align-items: flex-start;
+      }
+
+      nav a {
+        margin-left: 0;
+        margin-right: 14px;
+      }
+
+      .grid {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
 </head>
 
 <body>
+  <main class="page">
 
-  <!-- HIER KOMMT DEIN INHALT HIN -->
-  <h1>❤️ WireLogic unterstützen</h1>
+    <header>
+      <div class="brand">WireLogic Systems</div>
 
-  <p>
-    WireLogic wird aktuell nebenberuflich von einem Elektriker entwickelt.
-    Ziel ist es, die Dokumentation von Elektro- und KNX-Projekten deutlich zu vereinfachen
-    und Elektrikern auf der Baustelle Zeit zu sparen.
-  </p>
+      <nav>
+        <a href="index.html">Startseite</a>
+        <a href="roadmap.html">Roadmap</a>
+        <a href="privacy.html">Datenschutz</a>
+        <a href="impressum.html">Impressum</a>
+      </nav>
+    </header>
 
-  <p>
-    Die Entwicklung, Testgeräte, Apple-Entwicklergebühren, Webseite und Infrastruktur
-    werden derzeit privat finanziert.
-  </p>
+    <section class="hero">
+      <div class="badge">❤️ Entwicklung unterstützen</div>
 
-  <p>
-    Wenn dir die Idee gefällt und du die Weiterentwicklung unterstützen möchtest,
-    freuen wir uns über jeden freiwilligen Beitrag.
-  </p>
+      <h1>WireLogic unterstützen</h1>
 
-  <h2>Aktuelles Entwicklungsziel</h2>
+      <p>
+        WireLogic wird aktuell nebenberuflich von einem Elektriker entwickelt.
+        Ziel ist es, die Dokumentation von Elektro- und KNX-Projekten deutlich zu vereinfachen
+        und Elektrikern auf der Baustelle Zeit zu sparen.
+      </p>
 
-  <p>
-    Verteilerplanung, PDF-Erweiterungen, Aktorverwaltung und ETS-Export weiter ausbauen.
-  </p>
+      <a class="support-button"
+         href="https://www.paypal.com/pools/c/9q15OK9MTB"
+         target="_blank">
+        ☕ WireLogic unterstützen
+      </a>
+    </section>
 
-  <a href="https://www.paypal.com/pools/c/9q15OK9MTB" target="_blank">
-    ☕ WireLogic unterstützen
-  </a>
+    <section class="card">
+      <h2>Warum Unterstützung hilft</h2>
 
-  <h2>Warum ich WireLogic entwickle</h2>
+      <p>
+        Die Entwicklung, Testgeräte, Apple-Entwicklergebühren, Webseite und Infrastruktur
+        werden derzeit privat finanziert. Jeder freiwillige Beitrag hilft dabei,
+        WireLogic schneller weiterzuentwickeln und neue Funktionen umzusetzen.
+      </p>
+    </section>
 
-  <p>
-    Mein Name ist Severin und ich arbeite selbst als Elektriker.
-    WireLogic entstand aus dem Wunsch, die tägliche Dokumentation auf Baustellen einfacher,
-    schneller und strukturierter zu gestalten.
-  </p>
+    <section class="grid">
+      <div class="card">
+        <h2>Aktuelles Entwicklungsziel</h2>
 
-  <p>
-    Viele Funktionen der App basieren direkt auf Erfahrungen aus realen Projekten
-    und werden laufend gemeinsam mit anderen Elektrikern weiterentwickelt.
-  </p>
+        <ul class="list">
+          <li>Verteilerplanung weiter ausbauen</li>
+          <li>PDF-Export verbessern</li>
+          <li>Aktorverwaltung erweitern</li>
+          <li>ETS-Export weiterentwickeln</li>
+          <li>Testgeräte und Infrastruktur finanzieren</li>
+        </ul>
+      </div>
 
+      <div class="card">
+        <h2>Warum ich WireLogic entwickle</h2>
+
+        <p>
+          Mein Name ist Severin und ich arbeite selbst als Elektriker.
+          WireLogic entstand aus dem Wunsch, die tägliche Dokumentation auf Baustellen
+          einfacher, schneller und strukturierter zu gestalten.
+        </p>
+
+        <p>
+          Viele Funktionen basieren direkt auf Erfahrungen aus realen Projekten
+          und werden laufend gemeinsam mit anderen Elektrikern weiterentwickelt.
+        </p>
+      </div>
+    </section>
+
+    <section class="card">
+      <h2>Entwickelt von Elektrikern – für Elektriker</h2>
+
+      <p>
+        WireLogic ist kein Konzernprojekt, sondern entsteht direkt aus der Praxis.
+        Jede Unterstützung hilft dabei, aus einer Idee ein professionelles Werkzeug
+        für echte Baustellen, Elektrofirmen und KNX-Projekte zu machen.
+      </p>
+    </section>
+
+    <footer class="footer">
+      © 2026 WireLogic Systems
+      <br><br>
+      <a href="index.html">Start</a>
+      ·
+      <a href="roadmap.html">Roadmap</a>
+      ·
+      <a href="privacy.html">Datenschutz</a>
+      ·
+      <a href="impressum.html">Impressum</a>
+    </footer>
+
+  </main>
 </body>
 </html>
