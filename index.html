@@ -348,6 +348,82 @@
       margin: 0 8px;
     }
 
+        .highlight-section {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 36px;
+      padding: 42px;
+      box-shadow: 0 24px 70px rgba(20,35,70,0.10);
+      margin-bottom: 90px;
+    }
+
+    .highlight-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 34px;
+      align-items: center;
+    }
+
+    .highlight-media {
+      background: linear-gradient(180deg, #ffffff, #eef5ff);
+      border: 1px solid rgba(13,110,253,0.12);
+      border-radius: 30px;
+      padding: 18px;
+      box-shadow: 0 18px 45px rgba(20,35,70,0.08);
+    }
+
+    .highlight-media img {
+      width: 100%;
+      border-radius: 22px;
+      display: block;
+    }
+
+    .tag-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 22px;
+    }
+
+    .tag {
+      padding: 9px 13px;
+      border-radius: 999px;
+      background: rgba(13,110,253,0.08);
+      color: var(--blue);
+      font-size: 13px;
+      font-weight: 800;
+    }
+
+    .vision-card {
+      background: linear-gradient(135deg, #0b1220, #14233f);
+      color: white;
+      border-radius: 36px;
+      padding: 46px;
+      margin-bottom: 90px;
+      box-shadow: 0 24px 70px rgba(20,35,70,0.18);
+    }
+
+    .vision-card p {
+      color: rgba(255,255,255,0.72);
+      font-size: 18px;
+      line-height: 1.7;
+    }
+
+    .vision-list {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
+      margin-top: 28px;
+    }
+
+    .vision-item {
+      background: rgba(255,255,255,0.08);
+      border: 1px solid rgba(255,255,255,0.12);
+      border-radius: 22px;
+      padding: 20px;
+      font-weight: 800;
+    }
+    
     @media (max-width: 860px) {
       header {
         flex-direction: column;
@@ -356,14 +432,18 @@
         margin-bottom: 48px;
       }
 
-      .phone-preview,
-      .grid,
-      .roadmap {
-        grid-template-columns: 1fr;
-      }
+     .phone-preview,
+.grid,
+.roadmap,
+.highlight-grid,
+.vision-list {
+  grid-template-columns: 1fr;
+}
 
-      .showcase,
-      .steps {
+            .showcase,
+      .steps,
+      .highlight-section,
+      .vision-card {
         padding: 26px;
       }
     }
@@ -534,7 +614,57 @@
         </div>
       </div>
     </section>
+    
+    <section class="highlight-section">
+      <div class="highlight-grid">
+        <div>
+          <div class="badge">📱 KNX & ETS Vorbereitung</div>
+          <h2>Gruppenadressen direkt aus der Baustellenerfassung.</h2>
+          <p class="subtitle" style="margin-left:0;">
+            Aus den erfassten Räumen, Leitungen und Aderfunktionen erzeugt WireLogic automatisch
+            eine strukturierte KNX-Vorschau. So können Gruppenadressen früh geprüft, sauber vorbereitet
+            und später für die Weiterverarbeitung genutzt werden.
+          </p>
 
+          <div class="tag-list">
+            <span class="tag">KNX Vorschau</span>
+            <span class="tag">Gruppenadressen</span>
+            <span class="tag">ETS Vorbereitung</span>
+            <span class="tag">Raumbezogene Struktur</span>
+          </div>
+        </div>
+
+        <div class="highlight-media">
+          <img src="wirelogic-ets-export.png" alt="WireLogic KNX Gruppenadressen und ETS Export">
+        </div>
+      </div>
+    </section>
+
+    <section class="highlight-section">
+      <div class="highlight-grid">
+        <div class="highlight-media">
+          <img src="wirelogic-pdf-dokumentation.png" alt="WireLogic PDF Dokumentation für Kunden">
+        </div>
+
+        <div>
+          <div class="badge">📄 PDF Dokumentation</div>
+          <h2>Fertige Projektunterlagen für Kunde, Büro und Baustelle.</h2>
+          <p class="subtitle" style="margin-left:0;">
+            WireLogic erstellt aus den erfassten Projektdaten eine übersichtliche Dokumentation.
+            Kabellisten, Klemmenlisten, KNX-Daten und weitere Projektinformationen können sauber
+            exportiert, weitergegeben oder archiviert werden.
+          </p>
+
+          <div class="tag-list">
+            <span class="tag">Kabelliste</span>
+            <span class="tag">Klemmenliste</span>
+            <span class="tag">Projektübersicht</span>
+            <span class="tag">Kundenunterlagen</span>
+          </div>
+        </div>
+      </div>
+    </section>
+    
     <section class="steps" id="ablauf">
       <h2>So funktioniert WireLogic.</h2>
 
@@ -604,6 +734,29 @@
             Teamfunktionen, Klemmenfeldplanung und automatische Stromlaufplan-Erzeugung.
           </p>
         </div>
+      </div>
+    </section>
+
+        <section class="vision-card">
+      <div class="badge" style="background:rgba(255,255,255,0.12); color:#22d3ee;">
+        🚀 Zukunftsvision
+      </div>
+
+      <h2>WireLogic soll zur intelligenten Plattform für Elektroplanung werden.</h2>
+
+      <p>
+        Neben der iPhone-App sind weitere Funktionen geplant, die den Arbeitsalltag von Elektrikern
+        langfristig noch stärker vereinfachen sollen – von der Web-Version für Büro und Baustelle
+        bis hin zu einem KI-Assistenten mit Sprachsteuerung.
+      </p>
+
+      <div class="vision-list">
+        <div class="vision-item">🌐 Web-Version</div>
+        <div class="vision-item">🤖 KI-Assistent</div>
+        <div class="vision-item">🎤 Sprachsteuerung</div>
+        <div class="vision-item">📱 Siri-Integration</div>
+        <div class="vision-item">⚡ Verteilerplanung</div>
+        <div class="vision-item">📄 Erweiterte PDF-Ausgabe</div>
       </div>
     </section>
 
