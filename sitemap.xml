@@ -1,9 +1,29 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 
-  <url>
-    <loc>https://wirelogic.systems/</loc>
-    <priority>1.0</priority>
-  </url>
+<url>
+<loc>https://wirelogicsystems.de/</loc>
+<priority>1.0</priority>
+</url>
+
+<url>
+<loc>https://wirelogicsystems.de/funktionen.html</loc>
+</url>
+
+<url>
+<loc>https://wirelogicsystems.de/roadmap.html</loc>
+</url>
+
+<url>
+<loc>https://wirelogicsystems.de/support.html</loc>
+</url>
+
+<url>
+<loc>https://wirelogicsystems.de/privacy.html</loc>
+</url>
+
+<url>
+<loc>https://wirelogicsystems.de/impressum.html</loc>
+</url>
 
 </urlset>
