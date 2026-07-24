@@ -117,20 +117,12 @@ h1 { margin: 0; font-size: clamp(54px, 7vw, 92px); }
   transform: rotateY(-10deg) rotateZ(3deg); animation: float 7s ease-in-out infinite;
 }
 .phone-screen {
-  min-height: 560px; overflow: hidden; border-radius: 45px; padding: 34px 18px;
-  background: linear-gradient(165deg, #f9fbff, #dbeeff); color: var(--ink);
+  position: relative; aspect-ratio: 588 / 1280; overflow: hidden; border-radius: 45px;
+  background: #02070d; color: var(--ink);
 }
-.phone-notch { width: 86px; height: 22px; margin: -24px auto 28px; border-radius: 20px; background: #05070b; }
-.screen-title { font-size: 25px; font-weight: 800; letter-spacing: -.04em; }
-.screen-sub { color: var(--muted); font-size: 12px; margin-bottom: 18px; }
-.screen-card {
-  margin: 10px 0; padding: 15px; border: 1px solid rgba(8,120,255,.13);
-  border-radius: 18px; background: rgba(255,255,255,.86); box-shadow: 0 8px 20px rgba(35,77,122,.08);
+.phone-app-screen {
+  width: 100%; height: 100%; object-fit: cover; object-position: top center;
 }
-.screen-card strong { display: block; font-size: 13px; }
-.screen-card small { color: var(--muted); }
-.screen-meter { height: 7px; margin-top: 11px; overflow: hidden; border-radius: 9px; background: #dce8f5; }
-.screen-meter::after { content: ""; display: block; width: 74%; height: 100%; border-radius: inherit; background: linear-gradient(90deg, var(--blue), var(--blue-2)); }
 .float-card {
   position: absolute; padding: 17px 19px; border: 1px solid rgba(255,255,255,.18);
   border-radius: 20px; background: rgba(9,31,59,.72); box-shadow: 0 25px 60px rgba(0,0,0,.28);
@@ -256,7 +248,6 @@ h1 { margin: 0; font-size: clamp(54px, 7vw, 92px); }
   .hero-copy > p { font-size: 18px; }
   .hero-product { min-height: 500px; }
   .phone { width: 245px; right: 7%; }
-  .phone-screen { min-height: 475px; }
   .card-a { top: 80px; left: -5px; }
   .card-b { bottom: 25px; right: -4px; }
   .section { padding: 78px 0; }
