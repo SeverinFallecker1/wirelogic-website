@@ -155,6 +155,11 @@ h1 { margin: 0; font-size: clamp(54px, 7vw, 92px); }
   display: grid; place-items: center; width: 52px; height: 52px; margin-bottom: 26px;
   border-radius: 17px; color: #0878ff; background: #eaf5ff; font-size: 24px;
 }
+.step-num + .feature-icon { margin-top: 20px; }
+.feature-icon svg {
+  width: 27px; height: 27px; fill: none; stroke: currentColor; stroke-width: 1.8;
+  stroke-linecap: round; stroke-linejoin: round;
+}
 .feature-card h3, .content-card h3 { margin: 0 0 10px; font-size: 25px; }
 .feature-card p, .content-card p { margin: 0; color: var(--muted); }
 .card-action { margin-top: 22px !important; }
